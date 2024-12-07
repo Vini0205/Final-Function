@@ -1,0 +1,116 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package pkgfinal.funct;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author vine
+ */
+public class VineFinalfuncton {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       
+
+    
+        double result = 0;
+        String[] options = {
+            "Area of Circle",
+            "Area of Rectangle",
+            "Area of Triangle",
+            "Volume of Sphere",
+            "Volume of Cylinder",
+            "Circle Segment Area",
+            "Sphere Surface Area",
+            "Triangle Side Length"
+        };
+
+        double selection = JOptionPane.showOptionDialog(
+            null,
+            "Please select an option:\n" +
+                "1. Area of Circle\n" +
+                "2. Area of Rectangle\n" +
+                "3. Area of Triangle\n" +
+                "4. Volume of Sphere\n" +
+                "5. Volume of Cylinder\n" +
+                "6. Circle Segment Area\n" +
+                "7. Sphere Surface Area\n" +
+                "8. Triangle Side Length",
+            "Geometry Calculator",
+            JOptionPane.DEFAULT_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[0]
+        );
+
+        switch ((int) selection) {
+            case 0 -> JOptionPane.showMessageDialog(null, "Circle Area: " + calculateCircleArea());
+            case 1 -> JOptionPane.showMessageDialog(null, "Rectangle Area: " + calculateRectangleArea());
+            case 2 -> JOptionPane.showMessageDialog(null, "Triangle Area: " + calculateTriangleArea());
+            case 3 -> JOptionPane.showMessageDialog(null, "Sphere Volume: " + calculateSphereVolume());
+            case 4 -> JOptionPane.showMessageDialog(null, "Cylinder Volume: " + calculateCylinderVolume());
+            case 5 -> JOptionPane.showMessageDialog(null, "Circle Segment Area: " + calculateCircleSegmentArea());
+            case 6 -> JOptionPane.showMessageDialog(null, "Sphere Surface Area: " + calculateSphereSurfaceArea());
+            case 7 -> JOptionPane.showMessageDialog(null, "Triangle Side Length: " + calculateTriangleSide());
+        }
+    }
+
+    public static double calculateCircleArea() {
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter radius:"));
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+    public static double calculateRectangleArea() {
+        double length = Double.parseDouble(JOptionPane.showInputDialog("Enter length:"));
+        double width = Double.parseDouble(JOptionPane.showInputDialog("Enter width:"));
+        return length * width;
+    }
+
+    public static double calculateTriangleArea() {
+        double base = Double.parseDouble(JOptionPane.showInputDialog("Enter base:"));
+        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter height:"));
+        return 0.5 * base * height;
+    }
+
+    public static double calculateSphereVolume() {
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter radius:"));
+        return (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
+    }
+
+    public static double calculateCylinderVolume() {
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter radius:"));
+        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter height:"));
+        return Math.PI * Math.pow(radius, 2) * height;
+    }
+
+    public static double calculateCircleSegmentArea() {
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter radius:"));
+        double degrees = Double.parseDouble(JOptionPane.showInputDialog("Enter angle in degrees:"));
+        double radians = Math.toRadians(degrees);
+        return 0.5 * Math.pow(radius, 2) * (radians - Math.sin(radians));
+    }
+
+    public static double calculateSphereSurfaceArea() {
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter radius:"));
+        return 4 * Math.PI * Math.pow(radius, 2);
+    }
+
+    public static double calculateTriangleSide() {
+        double a = Double.parseDouble(JOptionPane.showInputDialog("Enter side A:"));
+        double b = Double.parseDouble(JOptionPane.showInputDialog("Enter side B:"));
+        double degrees = Double.parseDouble(JOptionPane.showInputDialog("Enter angle in degrees:"));
+        double radians = Math.toRadians(degrees);
+        return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2) - 2 * a * b * Math.cos(radians));
+    }
+}
+
+    
+    
+
